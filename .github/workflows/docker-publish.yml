@@ -62,7 +62,8 @@ jobs:
               workflow_id: 'deploy.yaml',
               ref: 'main',
               inputs: {
-                appName: 'development',
+                appName: 'software-team',
+                appProject: 'swarm',
                 commit_sha: '${{ steps.meta.outputs.version }}',
               }
             })
