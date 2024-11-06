@@ -28,11 +28,32 @@ def handle_input(event):
 
 # Set up the chat interface
 chat = []
-chat_box = pn.widgets.TextAreaInput(value="", height=300, width=500, disabled=True)
-input_box = pn.widgets.TextInput(placeholder="Enter your message here...")
+chat_box = pn.widgets.TextAreaInput(value="Welcome! Enter some prompt in the input box below.", disabled=True, stylesheets=[
+"""
+:host {
+    height: calc(100vh - 80px);
+    width: calc(100vw - 20px);
+}
+.bk-input {
+    font-size: 28px;
+}
+"""
+])
+input_box = pn.widgets.TextInput(placeholder="Enter your message here...", stylesheets=[
+"""
+:host {
+    width: calc(100vw - 20px);
+    height: 50px;
+}
+.bk-input {
+    font-size: 28px;
+}
+"""
+])
 input_box.param.watch(handle_input, 'value')
 
 chat_interface = pn.Column(chat_box, input_box)
+
 chat_interface.servable()
 
 def pretty_print_messages(messages) -> None:
