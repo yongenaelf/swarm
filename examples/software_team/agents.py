@@ -2,21 +2,30 @@ from swarm import Agent
 
 
 def write_code(task):
-    """Function for the Developer agent to write code based on the given task."""
+    """
+    Provide the code written for the given task.
+    """
     return f"Code for {task} has been written."
 
 
 def test_code(code):
-    """Function for the Tester agent to test the given code."""
+    """
+    Provide the test results.
+    """
     return f"Code '{code}' has been tested and passed all tests."
 
 
 def manage_project(task):
-    """Function for the Project Manager agent to manage the project and coordinate between Developer and Tester."""
-    return f"Project task '{task}' has been managed and coordinated."
+    """
+    When managing the project, you can provide updates to the user.
+    Provide the code from the Developer or the test results from the Tester.
+    """
+    return f"Project task '{task}' is in progress."
 
 def get_status(task):
-    """Function for the Project Manager agent to get the status of the project. Returns the output of the code from Developer or the result of the tests from Tester."""
+    """
+    When the user asks for the status of the project, you can provide the output of the code from Developer or the result of the tests from Tester.
+    """
     return f"Project task '{task}' is in progress. The output is as follows:"
 
 developer_agent = Agent(
@@ -33,7 +42,12 @@ tester_agent = Agent(
 
 project_manager_agent = Agent(
     name="Project Manager Agent",
-    instructions="You are responsible for managing the project and coordinating between the Developer and Tester agents.",
+    instructions="""
+    You are responsible for managing the project and coordinating between Developer and Tester.
+    You can transfer the conversation to the Developer or Tester agent if needed.
+    As the work progresses, you can provide updates to the user.
+    When the user asks for the status of the project, you can provide the output of the code from Developer or the result of the tests from Tester.
+    """,
     functions=[manage_project, get_status],
 )
 
