@@ -11,7 +11,7 @@ agent = project_manager_agent
 pn.extension()
 
 def get_response(contents, user, instance):
-    global agent, messages
+    global agent, messages, stream
 
     if user == "user":
         messages.append({"role": "user", "content": contents})
@@ -19,38 +19,44 @@ def get_response(contents, user, instance):
     response = client.run(
             agent=agent,
             messages=messages,
-            stream=False,
+            stream=True,
         )
+    
+    content = ""
+    last_sender = ""
+
+    for chunk in response:
+        if "sender" in chunk:
+            last_sender = chunk["sender"]
+
+        if "content" in chunk and chunk["content"] is not None:
+            if not content and last_sender:
+                print(f"\033[94m{last_sender}:\033[0m", end=" ", flush=True)
+                last_sender = ""
+            print(chunk["content"], end="", flush=True)
+            content += chunk["content"]
+            yield content
+
+        if "tool_calls" in chunk and chunk["tool_calls"] is not None:
+            for tool_call in chunk["tool_calls"]:
+                f = tool_call["function"]
+                name = f["name"]
+                if not name:
+                    continue
+                print(f"\033[94m{last_sender}: \033[95m{name}\033[0m()")
+
+        if "delim" in chunk and chunk["delim"] == "end" and content:
+            print()  # End of response message
+            content = ""
+
+        if "response" in chunk:
+            response = chunk["response"]
     
     messages.extend(response.messages)
     agent = response.agent
-    return pretty_print_messages(response.messages)
     
 
 chat_bot = pn.chat.ChatInterface(callback=get_response, user="user", max_height=800)
 chat_bot.send("Ask me anything!", user="Assistant", respond=False)
 
 chat_bot.servable()
-
-def pretty_print_messages(messages):
-    for message in messages:
-        if message["role"] != "assistant":
-            continue
-
-        # print agent name in blue
-        print(f"\033[94m{message['sender']}\033[0m:", end=" ")
-
-        # print response, if any
-        if message["content"]:
-            print(message["content"])
-            yield message["content"]
-
-        # print tool calls in purple, if any
-        tool_calls = message.get("tool_calls") or []
-        if len(tool_calls) > 1:
-            print()
-        for tool_call in tool_calls:
-            f = tool_call["function"]
-            name, args = f["name"], f["arguments"]
-            arg_str = json.dumps(json.loads(args)).replace(":", "=")
-            print(f"\033[95m{name}\033[0m({arg_str[1:-1]})")
