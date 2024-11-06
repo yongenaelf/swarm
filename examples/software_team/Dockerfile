@@ -10,4 +10,4 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the entrypoint to run the chat_interface.py file
-ENTRYPOINT ["panel", "serve", "chat_interface.py"]
+ENTRYPOINT ["panel", "serve", "chat_interface.py", "--port", "80", "--address", "0.0.0.0"]
