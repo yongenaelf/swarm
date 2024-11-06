@@ -1,6 +1,9 @@
 # Use a base image with Python 3.10+
 FROM python:3.10-slim
 
+# Install git
+RUN apt-get update && apt-get install -y git
+
 # Set the working directory
 WORKDIR /app
 COPY . /app
