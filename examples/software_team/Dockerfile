@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy the software_team example files into the Docker image
 ARG EXAMPLES_DIR=examples/software_team
-COPY ${EXAMPLES_DIR} /app
+COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the entrypoint to run the main.py file
