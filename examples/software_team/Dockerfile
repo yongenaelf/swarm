@@ -9,5 +9,5 @@ WORKDIR /app
 COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set the entrypoint to run the main.py file
-ENTRYPOINT ["python", "main.py"]
+# Set the entrypoint to run the chat_interface.py file
+ENTRYPOINT ["panel", "serve", "chat_interface.py"]
