@@ -36,3 +36,20 @@ project_manager_agent = Agent(
     instructions="You are responsible for managing the project and coordinating between the Developer and Tester agents.",
     functions=[manage_project, get_status],
 )
+
+def transfer_to_developer():
+    """Function to transfer the conversation to the Developer agent."""
+    return developer_agent
+
+def transfer_to_tester():
+    """Function to transfer the conversation to the Tester agent."""
+    return tester_agent
+
+def transfer_to_project_manager():
+    """Function to transfer the conversation to the Project Manager agent."""
+    return project_manager_agent
+
+developer_agent.functions.append(transfer_to_project_manager)
+tester_agent.functions.append(transfer_to_project_manager)
+project_manager_agent.functions.append(transfer_to_developer)
+project_manager_agent.functions.append(transfer_to_tester)
