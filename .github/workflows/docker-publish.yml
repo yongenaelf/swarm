@@ -50,3 +50,19 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
+
+      - name: Deploy
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.WORKFLOW_DISPATCH }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'poc-aaa',
+              repo: 'devops',
+              workflow_id: 'deploy.yaml',
+              ref: 'main',
+              inputs: {
+                appName: 'development',
+                commit_sha: '${{ steps.meta.outputs.version }}',
+              }
+            })

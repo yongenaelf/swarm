@@ -15,6 +15,9 @@ def manage_project(task):
     """Function for the Project Manager agent to manage the project and coordinate between Developer and Tester."""
     return f"Project task '{task}' has been managed and coordinated."
 
+def get_status(task):
+    """Function for the Project Manager agent to get the status of the project. Returns the output of the code from Developer or the result of the tests from Tester."""
+    return f"Project task '{task}' is in progress. The output is as follows:"
 
 developer_agent = Agent(
     name="Developer Agent",
@@ -31,5 +34,5 @@ tester_agent = Agent(
 project_manager_agent = Agent(
     name="Project Manager Agent",
     instructions="You are responsible for managing the project and coordinating between the Developer and Tester agents.",
-    functions=[manage_project],
+    functions=[manage_project, get_status],
 )
