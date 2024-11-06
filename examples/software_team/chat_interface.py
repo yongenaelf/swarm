@@ -8,55 +8,31 @@ client = Swarm()
 messages = []
 agent = project_manager_agent
 
-# Function to handle user input and display agent responses
-def handle_input(event):
-    user_input = event.new
-    if user_input:
-        global agent, chat, messages, chat_box
-        messages.append({"role": "user", "content": user_input})
-        response = client.run(
+pn.extension()
+
+def get_response(contents, user, instance):
+    global agent, messages
+
+    if user == "user":
+        messages.append({"role": "user", "content": contents})
+
+    response = client.run(
             agent=agent,
             messages=messages,
             stream=False,
         )
-        chat.append(("User", user_input))
-        pretty_print_messages(response.messages)
-        chat_box.value = "\n".join([f"{msg[0]}: {msg[1]}" for msg in chat])
-        input_box.value = ""
-        messages.extend(response.messages)
-        agent = response.agent
+    
+    messages.extend(response.messages)
+    agent = response.agent
+    return pretty_print_messages(response.messages)
+    
 
-# Set up the chat interface
-chat = []
-chat_box = pn.widgets.TextAreaInput(value="Welcome! Enter some prompt in the input box below.", disabled=True, stylesheets=[
-"""
-:host {
-    height: calc(100vh - 80px);
-    width: calc(100vw - 20px);
-}
-.bk-input {
-    font-size: 28px;
-}
-"""
-])
-input_box = pn.widgets.TextInput(placeholder="Enter your message here...", stylesheets=[
-"""
-:host {
-    width: calc(100vw - 20px);
-    height: 50px;
-}
-.bk-input {
-    font-size: 28px;
-}
-"""
-])
-input_box.param.watch(handle_input, 'value')
+chat_bot = pn.chat.ChatInterface(callback=get_response, user="user", max_height=800)
+chat_bot.send("Ask me anything!", user="Assistant", respond=False)
 
-chat_interface = pn.Column(chat_box, input_box)
+chat_bot.servable()
 
-chat_interface.servable()
-
-def pretty_print_messages(messages) -> None:
+def pretty_print_messages(messages):
     for message in messages:
         if message["role"] != "assistant":
             continue
@@ -67,7 +43,7 @@ def pretty_print_messages(messages) -> None:
         # print response, if any
         if message["content"]:
             print(message["content"])
-            chat.append((message["sender"], message["content"]))
+            yield message["content"]
 
         # print tool calls in purple, if any
         tool_calls = message.get("tool_calls") or []
