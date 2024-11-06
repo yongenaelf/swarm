@@ -51,6 +51,12 @@ jobs:
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
 
+      - name: Set short git commit SHA
+        id: vars
+        run: |
+          calculatedSha=$(git rev-parse --short ${{ github.sha }})
+          echo "short_sha=$calculatedSha" >> "$GITHUB_OUTPUT"
+
       - name: Deploy
         uses: actions/github-script@v6
         with:
@@ -64,6 +70,6 @@ jobs:
               inputs: {
                 appName: 'software-team',
                 appProject: 'swarm',
-                commit_sha: '${{ steps.meta.outputs.version }}',
+                commit_sha: 'sha-${{ steps.vars.outputs.short_sha }}',
               }
             })
