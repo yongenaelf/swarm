@@ -11,6 +11,7 @@ def write_code(task):
 def test_code(code):
     """
     Provide the test results.
+    When there is a problem with the test results, you can feedback to the User and Developer.
     """
     return f"Code '{code}' has been tested and passed all tests."
 
