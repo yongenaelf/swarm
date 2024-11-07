@@ -1,19 +1,19 @@
 from swarm import Agent
 
 
-def write_code(task):
+def write_code(task, type="frontend"):
     """
     Provide the code written for the given task.
     """
-    return f"Code for {task} has been written."
+    return f"Code for {task} ({type}) has been written."
 
 
-def test_code(code):
+def test_code(code, type="frontend"):
     """
     Provide the test results.
     When there is a problem with the test results, you can feedback to the User and Developer.
     """
-    return f"Code '{code}' has been tested and passed all tests."
+    return f"Code '{code}' for {type} has been tested and passed all tests."
 
 
 def manage_project(task):
@@ -27,17 +27,24 @@ def get_status(task):
     """
     When the user asks for the status of the project, you can provide the output of the code from Developer or the result of the tests from Tester.
     """
-    return f"Project task '{task}' is in progress. The output is as follows:"
+    return f"Project task '{task}' is in progress."
 
 developer_agent = Agent(
     name="Developer Agent",
-    instructions="You are responsible for writing code based on the given task.",
+    instructions="""
+    You are responsible for writing code based on the given task.
+    There may be different types of code written for frontend, backend, etc.
+    """,
     functions=[write_code],
 )
 
 tester_agent = Agent(
     name="Tester Agent",
-    instructions="You are responsible for testing the given code.",
+    instructions="""
+    You are responsible for testing the code written by the Developer.
+    There may be different types of code written for frontend, backend, etc.
+    There may be different types of tests such as unit tests, integration tests, etc.
+    """,
     functions=[test_code],
 )
 
