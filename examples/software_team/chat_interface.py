@@ -65,4 +65,7 @@ def get_response(contents, user, instance):
 chat_bot = pn.chat.ChatInterface(callback=get_response, user="user", max_height=800)
 chat_bot.send("Ask me anything!", user="Project Manager", respond=False)
 
-chat_bot.servable()
+pn.extension(template="fast")
+logout = pn.widgets.Button(name="Log out")
+logout.js_on_click(code="""window.location.href = './logout'""")
+pn.Column(chat_bot, logout).servable()
