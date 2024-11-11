@@ -34,6 +34,7 @@ developer_agent = Agent(
     instructions="""
     You are responsible for writing code based on the given task.
     There may be different types of code written for frontend, backend, etc.
+    When the user asks to test code, transfer the conversation to the Tester agent.
     """,
     functions=[write_code],
 )
@@ -72,6 +73,7 @@ def transfer_to_project_manager():
     return project_manager_agent
 
 developer_agent.functions.append(transfer_to_project_manager)
+developer_agent.functions.append(transfer_to_tester)
 tester_agent.functions.append(transfer_to_project_manager)
 project_manager_agent.functions.append(transfer_to_developer)
 project_manager_agent.functions.append(transfer_to_tester)

@@ -20,14 +20,17 @@ def get_response(contents, user, instance):
             agent=agent,
             messages=messages,
             stream=True,
+            debug=True
         )
     
     content = ""
     last_sender = ""
+    current_sender = ""
 
     for chunk in response:
         if "sender" in chunk:
             last_sender = chunk["sender"]
+            current_sender = chunk["sender"]
 
         if "content" in chunk and chunk["content"] is not None:
             if not content and last_sender:
@@ -35,7 +38,10 @@ def get_response(contents, user, instance):
                 last_sender = ""
             print(chunk["content"], end="", flush=True)
             content += chunk["content"]
-            yield content
+            yield pn.chat.ChatMessage(
+                content,
+                user=current_sender,
+            )
 
         if "tool_calls" in chunk and chunk["tool_calls"] is not None:
             for tool_call in chunk["tool_calls"]:
@@ -57,6 +63,6 @@ def get_response(contents, user, instance):
     
 
 chat_bot = pn.chat.ChatInterface(callback=get_response, user="user", max_height=800)
-chat_bot.send("Ask me anything!", user="Assistant", respond=False)
+chat_bot.send("Ask me anything!", user="Project Manager", respond=False)
 
 chat_bot.servable()
