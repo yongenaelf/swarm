@@ -1,0 +1,6 @@
+{
+    "text": "Cross-chain transactions between the MainChain and dAppChain are considered two separate transactions. For example, transferring 1.5 ELF from the aelf dAppChain address ELF_75sSRT8rJqrKNF8h169qwwhiFLgXjaoLjthtA6ihnf7TnRDqB_tDVV to the MainChain address ELF_75sSRT8rJqrKNF8h169qwwhiFLgXjaoLjthtA6ihnf7TnRDqB_AELF:First, a transaction called CrossChainTransfer is initiated on the aelf dAppChain: https://tdvv-explorer.aelf.io/tx/2b01a4cac416ae77c6f98c8a7cace66d2fb1edd565a5c0bedb9f44b395103895Then, a transaction called CrossChainReceiveToken is generated on the MainChain: https://explorer.aelf.io/tx/db29e36851549e3c5650ba853078ab02c6bb31c252ddfd7e0f8a7c33191ca3dd",
+    "title": "Is a cross-chain transaction on the aelf blockchain considered a single transaction or two? Are there any examples?",
+    "article_id": "technical-and-security_14",
+    "url": "https://docs.aelf.com/about-aelf/technical-and-security/"
+}

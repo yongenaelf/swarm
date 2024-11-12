@@ -1,0 +1,6 @@
+{
+    "text": "If you mistakenly send ELF from the dAppChain in your Portkey wallet to a crypto exchange like Binance or OKEX, the tokens will likely not be credited to your exchange account because these exchanges typically only support ELF on the MainChain. Here's what you should do:Check the Transaction Details: Verify the transaction on the blockchain explorer to confirm that the tokens were sent to the correct address on the exchange but from the dAppChain.Contact the Exchange's Customer Support: Immediately contact the customer support team of the exchange (e.g., Binance or OKEX) and explain the situation. Provide them with the transaction ID, address, and other relevant details.Some exchanges may be able to manually recover the funds, but this process can be complicated and may not always be successful.Prevent Future Mistakes: Ensure that you always transfer ELF tokens to the MainChain before sending them to an exchange.Double-check the chain selection and address before confirming any transaction.By following these steps, you may be able to recover the tokens or at least understand the options available to you.",
+    "title": "What if I erraneously send ELF from the dAppChain in my Portkey wallet to a crypto exchange like Binance and OKEX? What should I do?",
+    "article_id": "wallet_7",
+    "url": "https://docs.aelf.com/about-aelf/wallet/"
+}

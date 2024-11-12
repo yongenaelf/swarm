@@ -1,0 +1,6 @@
+{
+    "text": "This is unlikely to happen because exchanges that allow aelf chain mainnet withdrawal of ELF requires the prefix (ie. ELF) and suffix (i.e. AELF for mainchain / tDVV for dappChain) to be first excluded from your aelf chain wallet recipient address before the exchange executes the transfer. If you enter your aelf chain wallet recipient address which includes the prefix (i.e. ELF) and suffix (i.e. AELF for mainchain / tDVV for dAppChain), the exchange will indicate an error in the address format and you will have to input the correct address again before the transfer can be made.",
+    "title": "What if I erraneously send ELF from a crypto exchange like Binance and OKEX to the dAppChain in my Portkey wallet?",
+    "article_id": "wallet_4",
+    "url": "https://docs.aelf.com/about-aelf/wallet/"
+}

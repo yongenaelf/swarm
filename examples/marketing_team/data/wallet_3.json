@@ -1,0 +1,6 @@
+{
+    "text": "When sending ELF tokens from a crypto exchange like Binance or OKEX to your Portkey wallet, you should select the MainChain address in your Portkey wallet.The MainChain is generally where the ELF tokens are held when they are on major exchanges, and selecting the MainChain ensures that the tokens are received correctly in your Portkey wallet.",
+    "title": "If I want to send ELF from a crypto exchange like Binance and OKEX to my Portkey wallet, should I select MainChain or dAppChain on my Portkey wallet?",
+    "article_id": "wallet_3",
+    "url": "https://docs.aelf.com/about-aelf/wallet/"
+}

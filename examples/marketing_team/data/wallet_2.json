@@ -1,0 +1,6 @@
+{
+    "text": "If your wallet is not supported on the aelf blockchain, you have two options--you can either create an account on a supported wallet or use an exchange account.Use a Supported Wallet:\nCreate a New Wallet: You can create a new wallet using Portkey Wallet.\nCross-Chain Transfer: Connect your wallets to ETransfer or eBridge to initiate the cross-chain transfer of your ELF tokens from Ethereum or BSC to the aelf blockchain.\nUse an Exchange:\nExchange Account: You can use an account provided by a centralised exchange that supports aelf. These exchanges included Binance, Bithumb, Upbit, HTX, OKX, Gate.io, or MEXC.\nWe highly recommend using a supported Web3 wallet like Portkey as it provides a non-custodial solution to token management on aelf blockchain. As they say, not your keys, not your crypto.",
+    "title": "What if my wallet is not supported on aelf blockchain?",
+    "article_id": "wallet_2",
+    "url": "https://docs.aelf.com/about-aelf/wallet/"
+}

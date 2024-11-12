@@ -1,0 +1,6 @@
+{
+    "text": "aelf's MainChain and aelf dAppChains serve distinct but complementary roles within its blockchain architecture. The MainChain acts as the backbone of the network, responsible for overall governance, security, and coordination. It manages cross-chain interactions and ensures the integrity of the entire ecosystem. aelf dAppChains, on the other hand, are specialised chains that handle specific types of transactions or applications. They operate independently but are connected to the MainChain, allowing for parallel processing of transactions. This design significantly enhances scalability by distributing the workload across multiple aelf dAppChains, reducing congestion and improving performance. Each aelf dAppChain can be customised for different use cases, providing flexibility and efficiency in handling diverse applications.",
+    "title": "What is the difference between aelf's MainChain and dAppChains?",
+    "article_id": "technical-and-security_10",
+    "url": "https://docs.aelf.com/about-aelf/technical-and-security/"
+}

@@ -1,0 +1,6 @@
+{
+    "text": "No, you cannot directly send ELF from the dAppChain in your Portkey wallet to a crypto exchange like Binance or OKEX. Most exchanges, including Binance and OKEX, only support ELF tokens on the MainChain.If you have ELF tokens on the dAppChain in your Portkey wallet and wish to transfer them to an exchange, you should first transfer the tokens from the dAppChain to the MainChain within your wallet. Once the tokens are on the MainChain, you can then send them to your exchange account. This ensures that the tokens are correctly received by the exchange.",
+    "title": "Can I send ELF from the dAppChain in my Portkey wallet to a crypto exchange like Binance and OKEX?",
+    "article_id": "wallet_6",
+    "url": "https://docs.aelf.com/about-aelf/wallet/"
+}

@@ -1,0 +1,6 @@
+{
+    "text": "In your Portkey wallet, the MainChain and dAppChain typically share the same base address, but they differ by the suffix (i.e. AELF for mainchain / tDVV for dAppChain).However, if you are still using the deprecated version of Portkey Wallet, the MainChain and dAppChain addresses might be different for the same account.",
+    "title": "Do MainChain and dAppChain in my Portkey wallet have different addresses?",
+    "article_id": "wallet_5",
+    "url": "https://docs.aelf.com/about-aelf/wallet/"
+}

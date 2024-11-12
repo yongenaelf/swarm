@@ -1,0 +1,6 @@
+{
+    "text": "Yes, aelf blockchain runs different types of nodes to support its network. Below are two primary types of nodes:Block Producer (BP): Participates in the consensus mechanism and produces blocks. Currently, there are 21 BPs and 4 candidate nodes.Candidate Node (CN): Maintains a complete copy of the aelf blockchain and facilitates network communication and data propagation.For the most current number of nodes and their specific details, you can check the Network DAO.",
+    "title": "Does aelf run any nodes? How many are there currently?",
+    "article_id": "technical-and-security_4",
+    "url": "https://docs.aelf.com/about-aelf/technical-and-security/"
+}

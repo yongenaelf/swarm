@@ -1,0 +1,6 @@
+{
+    "text": "Typically, when the block confirmation number reaches 250~300, it can be considered secure from becoming reversible.The most accurate method is to follow the calculation based on the LIB (Last Irreversible Block). A transaction is considered irreversible when its status is 'MINED' and the block height is less than the LastIrreversibleBlockHeight in the ChainStatus.",
+    "title": "At what block confirmation number on the aelf blockchain can we consider it unlikely that a chain becomes reversible?",
+    "article_id": "technical-and-security_12",
+    "url": "https://docs.aelf.com/about-aelf/technical-and-security/"
+}

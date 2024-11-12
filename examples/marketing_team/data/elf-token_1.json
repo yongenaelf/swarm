@@ -1,0 +1,6 @@
+{
+    "text": "ELF is the native token of the aelf blockchain, serving multiple critical functions within the ecosystem. ELF is used for paying transaction fees on the aelf blockchain.ELF is used by developers to pay block index fees, as cross-chain transfers and verifications require the MainChain to index the aelf dAppChain's block information.ELF is used by individuals or teams who are interested in becoming block producer nodes. To be one of aelf's block producers, they are required to purchase and deposit ELF tokens to participate in the block producer node election. Upon a successful election, the deposited ELF tokens are locked and will be unlocked and returned once the node steps down, provided no violations have occurred. ELF is used by voters to participate in aelf node elections, with each ELF token equating to one vote.For more details regarding the ELF token and its tokenomics, please refer to here.",
+    "title": "What is ELF? What are the use cases of ELF token?",
+    "article_id": "elf-token_1",
+    "url": "https://docs.aelf.com/about-aelf/elf-token/"
+}

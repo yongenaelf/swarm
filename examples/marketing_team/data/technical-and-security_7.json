@@ -1,0 +1,6 @@
+{
+    "text": "Transactions on the aelf blockchain are processed through a combination of its AEDPoS (aelf Delegated Proof of Stake) consensus mechanism and dAppChain architecture that enables parallel processing. Here's what happens when a user initiates a transaction:\nThe transaction is broadcast to the relevant network and dAppChain\nThe Core Data Center (also known as the miner) of that particular dAppChain will validate the transaction and package it into blocks\nThrough the AEDPoS, the elected Core Data Centers take turns to produce blocks. The produced blocks are validated by other Core Data Centers to ensure accuracy and integrity.\nOnce a block is validated and added to the dAppChain's blockchain, the transactions are final and irreversible\nIn the event a transaction requires interaction between different dAppChains, aelf's interoperability ensures the transfer and synchronisation of data across chains.",
+    "title": "How are transactions processed on the aelf network?",
+    "article_id": "technical-and-security_7",
+    "url": "https://docs.aelf.com/about-aelf/technical-and-security/"
+}

@@ -1,0 +1,6 @@
+{
+    "text": "The aelf blockchain utilises a unique Delegated Proof of Stake (DPoS) consensus mechanism called AEDPoS (aelf Delegated Proof of Stake). This mechanism is designed to provide high throughput, scalability, and security for the network.  ELF token holders would vote to elect a set of 'Core Data Centers', which are also known as miners or block producers. The elected 'Core Data Centers' would then be assigned time slots to produce blocks in a fair manner. The block of transactions produced during the assigned time is broadcast to the network for validation. Other Core Data Centers would validate the block and reach a consensus. Once deemed valid, it is added to the blockchain.",
+    "title": "What is the consensus mechanism used by aelf?",
+    "article_id": "technical-and-security_6",
+    "url": "https://docs.aelf.com/about-aelf/technical-and-security/"
+}
