@@ -6,6 +6,10 @@ from openai import OpenAI
 from swarm import Agent
 from swarm.repl import run_demo_loop
 
+from diskcache import Cache
+
+cache = Cache()
+
 # Initialize connections
 client = OpenAI()
 qdrant = qdrant_client.QdrantClient(host="localhost")
@@ -63,6 +67,17 @@ def query_docs(query):
         return {"response": "No results found."}
 
 
+def query_topics():
+    """Query x.com for the top trending topics."""
+    print(f"Retrieving trending topics.")
+    topics = cache.get("trending_topics")
+    if not topics:
+        topics = ["Web3", "NFTs"] # TODO: fetch from x.com
+        cache.set("trending_topics", topics, expire=60 * 60)  # Cache for 1 hour
+
+    return {"response": f"Top trending topics: {', '.join(topics)}"}
+
+
 def send_email(email_address, message):
     """Send an email to the user."""
     response = f"Email sent to: {email_address} with message: {message}"
@@ -78,17 +93,26 @@ def transfer_to_help_center():
     """Transfer the user to the help center agent."""
     return help_center_agent
 
+def transfer_to_topics():
+    """Transfer the user to the topics agent."""
+    return topics_agent
 
 user_interface_agent = Agent(
     name="User Interface Agent",
     instructions="You are a user interface agent that handles all interactions with the user. Call this agent for general questions and when no other agent is correct for the user query.",
-    functions=[transfer_to_help_center],
+    functions=[transfer_to_help_center, transfer_to_topics],
 )
 
 help_center_agent = Agent(
     name="Help Center Agent",
     instructions="You are an aelf help center agent who deals with questions about aelf blockchain, such as smart contracts, decentralised applications, SDKs, etc.",
     functions=[query_docs, submit_ticket, send_email],
+)
+
+topics_agent = Agent(
+    name="Topics Agent",
+    instructions="You are a topics agent that retrieves the top trending topics and suggests topics related to aelf blockchain. Respond with the list of topics.",
+    functions=[query_topics],
 )
 
 if __name__ == "__main__":

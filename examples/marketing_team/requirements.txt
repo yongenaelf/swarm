@@ -1,3 +1,4 @@
 qdrant-client
 scrapy
 unidecode
+diskcache
